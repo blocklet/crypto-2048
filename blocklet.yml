@@ -3,11 +3,13 @@ description: >-
   A simple blockchain game that demos capabilities of ArcBlock technologies such
   as blockchain, did, abtnode
 group: dapp
-version: 0.4.2
+version: 0.5.0
 main: api/index.js
 title: Crypto 2048
 publicUrl: /
 author: wangshijun <wangshijun2010@gmail.com>
+charging:
+  price: 0
 color: primary
 keywords:
   - blockchain
@@ -35,11 +37,9 @@ environments:
     description: Host of the chain native token lives
     required: false
     default: 'https://zinc.abtnetwork.io/api'
-scripts:
-  dev: "npm run start"
 capabilities:
   dynamicPathPrefix: true
-charging:
-  price: 0
-did: z8iZqHcgrbAntF8SZMWmNMYLvJB5VjFAMndzo
+scripts:
+  dev: npm run start
 specVersion: 1.0.0
+did: z8iZqHcgrbAntF8SZMWmNMYLvJB5VjFAMndzo
