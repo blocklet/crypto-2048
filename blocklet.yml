@@ -35,6 +35,8 @@ environments:
     description: Host of the chain native token lives
     required: false
     default: 'https://zinc.abtnetwork.io/api'
+scripts:
+  dev: "npm run start"
 capabilities:
   dynamicPathPrefix: true
 charging:
