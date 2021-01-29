@@ -69,6 +69,6 @@ interfaces:
 timeout:
   start: 10
 requirements:
-  abtnode: '>=1.1.0'
+  abtnode: '>=1.1.7'
   os: '*'
   cpu: '*'
