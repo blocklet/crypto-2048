@@ -1,9 +1,11 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import styled from 'styled-components';
 
 import Avatar from '@material-ui/core/Avatar';
+import CircularProgress from '@material-ui/core/CircularProgress';
 import DidAuth from '@arcblock/did-react/lib/Auth';
 import Button from '@arcblock/ux/lib/Button';
+import Center from '@arcblock/ux/lib/Center';
 
 import Layout from '../components/layout';
 import Game from '../components/game';
@@ -13,7 +15,13 @@ import { getWebWalletUrl } from '../libs/util';
 export default function IndexPage() {
   const { session, api } = useContext(SessionContext);
   const { chainId, assetChainId } = window.env;
-  const { [chainId]: chain, [assetChainId]: assetChain } = session;
+
+  const [{ [chainId]: chain, [assetChainId]: assetChain }, setChainInfo] = useState({
+    [chainId]: null,
+    [assetChainId]: null,
+  });
+
+  const [loading, setLoading] = useState(false);
 
   const [swapOpen, setSwapOpen] = useState(false);
   const onSwapClose = () => setSwapOpen(false);
@@ -59,6 +67,28 @@ export default function IndexPage() {
   };
 
   const webWalletUrl = getWebWalletUrl();
+
+  useEffect(() => {
+    setLoading(true);
+    api.get('/api/did/user').then(res => {
+      setLoading(false);
+      setChainInfo(res.data);
+    }).catch(() => {
+      setLoading(false);
+    });
+  }, []);
+
+  if (loading) {
+    return (
+      <Center>
+        <CircularProgress />
+      </Center>
+    );
+  }
+
+  if (!chain || !assetChain) {
+    return null;
+  }
 
   return (
     <Layout title="Home">

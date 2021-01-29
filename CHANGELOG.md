@@ -1,3 +1,8 @@
+## 0.6.0 (January 29, 2021)
+
+- update SessionProvider
+- migrate auth from custom auth to @abtnode/auth-service
+
 ## 0.5.8 (January 14, 2021)
   - feat: support publish to blocklet registry
   - [skip ci] Update README.md
