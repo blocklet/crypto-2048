@@ -24,6 +24,17 @@ export default function IndexPage() {
   const [loading, setLoading] = useState(false);
 
   const [swapOpen, setSwapOpen] = useState(false);
+
+  const refresh = (showLoading = false) => {
+    setLoading(!!showLoading);
+    api.get('/api/did/user').then(res => {
+      setLoading(false);
+      setChainInfo(res.data);
+    }).catch(() => {
+      setLoading(false);
+    });
+  };
+
   const onSwapClose = () => setSwapOpen(false);
   const onSwapOpen = async () => {
     const res = await api.post('/api/did/swap', {});
@@ -31,6 +42,14 @@ export default function IndexPage() {
   };
   const onSwapSuccess = () => {
     setTimeout(onSwapClose, 1000);
+    let times = 5;
+    const timeId = setInterval(() => {
+      if (times < 1) {
+        clearInterval(timeId);
+      }
+      times -= 1;
+      refresh();
+    }, 6000);
   };
 
   const [authOpen, setAuthOpen] = useState(false);
@@ -43,7 +62,7 @@ export default function IndexPage() {
     api
       .post('/api/game/start')
       .then(async data => {
-        await session.refresh();
+        await refresh();
         done(null, data);
       })
       .catch(err => {
@@ -69,14 +88,8 @@ export default function IndexPage() {
   const webWalletUrl = getWebWalletUrl();
 
   useEffect(() => {
-    setLoading(true);
-    api.get('/api/did/user').then(res => {
-      setLoading(false);
-      setChainInfo(res.data);
-    }).catch(() => {
-      setLoading(false);
-    });
-  }, []);
+    refresh(true);
+  }, []); // eslint-disable-line
 
   if (loading) {
     return (
