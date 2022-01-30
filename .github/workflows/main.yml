@@ -7,35 +7,30 @@ on:
 
 jobs:
   Deploy:
-
     runs-on: ubuntu-latest
 
     if: "! contains(toJSON(github.event.commits.*.message), '[skip ci]')"
 
     steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
 
-    - name: Checkout repo
-      uses: actions/checkout@v2
+      - name: Setup Nodejs
+        run: actions/setup-node@v2
+        with:
+          node-version: 14
+          cache: yarn
 
-    - name: Initialize
-      run: make github-action-init
+      - name: Initialize
+        run: yarn
 
-    - name: Deploy
-      env:
-        AWS_NODE_ENDPOINT: ${{ secrets.AWS_NODE_ENDPOINT }}
-        AWS_NODE_ACCESS_KEY: ${{ secrets.AWS_NODE_ACCESS_KEY }}
-        AWS_NODE_ACCESS_SECRET: ${{ secrets.AWS_NODE_ACCESS_SECRET }}
-        ALIYUN_NODE_ENDPOINT: ${{ secrets.ALIYUN_NODE_ENDPOINT }}
-        ALIYUN_NODE_ACCESS_SECRET: ${{ secrets.ALIYUN_NODE_ACCESS_SECRET }}
-        ALIYUN_NODE_ACCESS_KEY: ${{ secrets.ALIYUN_NODE_ACCESS_KEY }}
-        SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-        NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        GIT_HUB_TOKEN: ${{ secrets.GIT_HUB_TOKEN }}
-        BLOCKLET_REGISTRY: ${{ secrets.BLOCKLET_REGISTRY }}
-        ABTNODE_DEV_SK: ${{ secrets.ABTNODE_DEV_SK }}
-      run: bash ./tools/publish.sh
-
-    - name: Release to Github
-      uses: blocklet/action-release-to-github@v1.0.0
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Blocklet workflow
+        uses: blocklet/action-workflow@v1
+        with:
+          skip-upload: false
+          skip-deploy: true
+          bundle-command: yarn bundle
+          store-endpoint: ${{ secrets.STORE_ENDPOINT_PROD }}
+          store-access-token: ${{ secrets.STORE_ACCESS_TOKEN_PROD }}
+          slack-webhook: ${{ secrets.SLACK_WEBHOOK }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
