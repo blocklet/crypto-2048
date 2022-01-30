@@ -22,7 +22,9 @@ jobs:
           cache: yarn
 
       - name: Initialize
-        run: yarn
+        run: |
+          echo "SKIP_PREFLIGHT_CHECK=true" > .env
+          yarn
 
       - name: Blocklet workflow
         uses: blocklet/action-workflow@v1
