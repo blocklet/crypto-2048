@@ -1,3 +1,7 @@
+## 0.9.1 (一月 30, 2022)
+
+- feat: use blocklet workflow
+
 ## 0.9.0 (March 24, 2021)
 
 - build: update the prefix of static resource url
