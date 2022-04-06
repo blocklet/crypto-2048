@@ -17,7 +17,6 @@
     "@arcblock/did-auth": "^1.15.7",
     "@arcblock/did-auth-storage-nedb": "^1.6.3",
     "@arcblock/did-connect": "^1.16.70",
-    "@arcblock/did-react": "^1.15.21",
     "@arcblock/did-util": "^1.15.7",
     "@arcblock/forge-sdk": "^1.6.0",
     "@arcblock/forge-util": "^1.6.3",

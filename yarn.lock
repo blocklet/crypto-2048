@@ -149,26 +149,6 @@
     "@napi-rs/canvas" "^0.1.21"
     multibase "^4.0.6"
 
-"@arcblock/did-react@^1.15.21":
-  version "1.15.21"
-  resolved "https://registry.yarnpkg.com/@arcblock/did-react/-/did-react-1.15.21.tgz#9bd0a7439e0804abd048c7ffbe8b00945867de9b"
-  integrity sha512-3+DPcfY4FSW/ElMSmV+chZ22my41uM7oVZ4TnH2fR7NikTfGFya3yTMzN7LfKTTwMf1nUczEsnlYwz3lmZCTyw==
-  dependencies:
-    "@arcblock/event-client" "^1.0.23"
-    "@arcblock/react-hooks" "^1.15.21"
-    "@arcblock/ux" "^1.15.21"
-    "@fontsource/ubuntu-mono" "^4.4.5"
-    "@material-ui/core" "^4.12.3"
-    axios "^0.21.1"
-    core-js "^3.6.4"
-    dsbridge "3.1.4"
-    js-cookie "^2.2.1"
-    mdi-material-ui "^6.22.1"
-    qrcode.react "^1.0.0"
-    react-jdenticon "^0.0.9"
-    react-use "^17.2.4"
-    styled-components "^5.0.0"
-
 "@arcblock/did-util@1.15.7", "@arcblock/did-util@^1.15.7", "@arcblock/did-util@^1.6.0":
   version "1.15.7"
   resolved "https://registry.yarnpkg.com/@arcblock/did-util/-/did-util-1.15.7.tgz#545591563498c2653f9be62d16570bf9556e4534"
@@ -352,7 +332,7 @@
     pako "^1.0.11"
     url-join "^4.0.1"
 
-"@arcblock/react-hooks@^1.15.21", "@arcblock/react-hooks@^1.16.70":
+"@arcblock/react-hooks@^1.16.70":
   version "1.16.70"
   resolved "https://registry.yarnpkg.com/@arcblock/react-hooks/-/react-hooks-1.16.70.tgz#b8f41a50861c8abc140aa7d4de8b54877f149bd6"
   integrity sha512-tAUSS1URHFP3y5asiYwGQNdJjUdzFFdPTkG+qudzDeB9vBxT0ZtK3bjQRu3oYTcuT1cuQma69YofVJEuwcG9hA==
@@ -405,7 +385,7 @@
     "@arcblock/forge-sdk" "^1.6.0"
     debug "^4.3.1"
 
-"@arcblock/ux@^1.15.21", "@arcblock/ux@^1.16.70":
+"@arcblock/ux@^1.16.70":
   version "1.16.70"
   resolved "https://registry.yarnpkg.com/@arcblock/ux/-/ux-1.16.70.tgz#949351e7b6ab82b0a10d7cc3f80d5bee2764c0f7"
   integrity sha512-/1o9rIq/IcuD2KwCYqnSi+9GWV3hVQg8YZaMlP4FQ4B0GBlL5ezNxTv4UkQWEjSSS+sADqNlqxwzHK/4xJzXDg==
@@ -4030,11 +4010,6 @@ caniuse-lite@^1.0.0, caniuse-lite@^1.0.30000981, caniuse-lite@^1.0.30001035, can
   version "1.0.30001084"
   resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001084.tgz#00e471931eaefbeef54f46aa2203914d3c165669"
   integrity sha512-ftdc5oGmhEbLUuMZ/Qp3mOpzfZLCxPYKcvGv6v2dJJ+8EdqcvZRbAGOiLmkM/PV1QGta/uwBs8/nCl6sokDW6w==
-
-canvas-renderer@~2.1.1:
-  version "2.1.1"
-  resolved "https://registry.yarnpkg.com/canvas-renderer/-/canvas-renderer-2.1.1.tgz#d91fe9511ab48056ff9fa8a04514bede76535f55"
-  integrity sha512-/V0XetN7s1Mk3NO7x2wxPZYv0pLMQtGAhecuOuKR88beiYCUle1AbCcFZNLu+4NVzi9RVHS0rXtIgzPEaKidLw==
 
 capture-exit@^2.0.0:
   version "2.0.0"
@@ -8024,14 +7999,6 @@ iterall@^1.2.2:
   resolved "https://registry.yarnpkg.com/iterall/-/iterall-1.3.0.tgz#afcb08492e2915cbd8a0884eb93a8c94d0d72fea"
   integrity sha512-QZ9qOMdF+QLHxy1QIpUHUU1D5pS2CG2P69LF6L6CPjPYA/XMOmKV3PZpawHoAjHNyB0swdVTRxdYT4tbBbxqwg==
 
-jdenticon@^2.2.0:
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/jdenticon/-/jdenticon-2.2.0.tgz#6a9d9cb2134a7848ff21d59b3871148cbc6af87f"
-  integrity sha512-WGqwpjN9pab/Sah9pGnFH5tQc3HF3WbLV/tPVbykvk5nuAkxG/zhzQYWC2owvpnS+/A0HmlSx35rtY8kyN+x7Q==
-  dependencies:
-    "@types/node" "*"
-    canvas-renderer "~2.1.1"
-
 jest-changed-files@^24.9.0:
   version "24.9.0"
   resolved "https://registry.yarnpkg.com/jest-changed-files/-/jest-changed-files-24.9.0.tgz#08d8c15eb79a7fa3fc98269bc14b451ee82f8039"
@@ -11441,7 +11408,7 @@ prompts@^2.0.1:
     kleur "^3.0.3"
     sisteransi "^1.0.4"
 
-prop-types@^15.5.4, prop-types@^15.6.0, prop-types@^15.6.2, prop-types@^15.7.2:
+prop-types@^15.5.4, prop-types@^15.6.2, prop-types@^15.7.2:
   version "15.7.2"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.7.2.tgz#52c41e75b8c87e72b9d9360e0206b99dcbffa6c5"
   integrity sha512-8QQikdH7//R2vurIJSutZ1smHYTcLpRWEOlHnzcWHmBYrOGUysKwSsrC89BCiFj3CbrfJ/nXFdJepOVrY1GCHQ==
@@ -11544,24 +11511,10 @@ q@^1.1.2:
   resolved "https://registry.yarnpkg.com/q/-/q-1.5.1.tgz#7e32f75b41381291d04611f1bf14109ac00651d7"
   integrity sha1-fjL3W0E4EpHQRhHxvxQQmsAGUdc=
 
-qr.js@0.0.0:
-  version "0.0.0"
-  resolved "https://registry.yarnpkg.com/qr.js/-/qr.js-0.0.0.tgz#cace86386f59a0db8050fa90d9b6b0e88a1e364f"
-  integrity sha1-ys6GOG9ZoNuAUPqQ2baw6IoeNk8=
-
 qrcode-generator@^1.4.3:
   version "1.4.4"
   resolved "https://registry.yarnpkg.com/qrcode-generator/-/qrcode-generator-1.4.4.tgz#63f771224854759329a99048806a53ed278740e7"
   integrity sha512-HM7yY8O2ilqhmULxGMpcHSF1EhJJ9yBj8gvDEuZ6M+KGJ0YY2hKpnXvRD+hZPLrDVck3ExIGhmPtSdcjC+guuw==
-
-qrcode.react@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/qrcode.react/-/qrcode.react-1.0.0.tgz#7e8889db3b769e555e8eb463d4c6de221c36d5de"
-  integrity sha512-jBXleohRTwvGBe1ngV+62QvEZ/9IZqQivdwzo9pJM4LQMoCM2VnvNBnKdjvGnKyDZ/l0nCDgsPod19RzlPvm/Q==
-  dependencies:
-    loose-envify "^1.4.0"
-    prop-types "^15.6.0"
-    qr.js "0.0.0"
 
 qs@6.7.0:
   version "6.7.0"
@@ -11766,14 +11719,6 @@ react-is@^16.6.0, react-is@^16.7.0, react-is@^16.8.0, react-is@^16.8.1, react-is
   version "17.0.2"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-17.0.2.tgz#e691d4a8e9c789365655539ab372762b0efb54f0"
   integrity sha512-w2GsyukL62IJnlaff/nRegPQR94C/XXamvMWmSHRJ4y7Ts/4ocGRmTHvOs8PSE6pB3dWOrD/nueuU5sduBsQ4w==
-
-react-jdenticon@^0.0.9:
-  version "0.0.9"
-  resolved "https://registry.yarnpkg.com/react-jdenticon/-/react-jdenticon-0.0.9.tgz#5d019a1916a73cf8f63251e54143065bb8c718e3"
-  integrity sha512-NuAoIjNBoL5VpPgRXl52b8IwF5nOEK+imn/9usCslaJlg5qgiUjXw0lVLLI1w19cjPaJo952kjnpC2CtokcTXA==
-  dependencies:
-    jdenticon "^2.2.0"
-    prop-types "^15.7.2"
 
 react-player@^1.15.2:
   version "1.15.3"
