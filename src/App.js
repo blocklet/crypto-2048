@@ -13,7 +13,6 @@ import Center from '@arcblock/ux/lib/Center';
 
 import HomePage from './pages/index';
 
-import { getWebWalletUrl } from './libs/util';
 import { SessionProvider } from './libs/session';
 
 const theme = create();
@@ -38,43 +37,40 @@ if (window.blocklet && window.blocklet.prefix) {
   apiPrefix = window.env.apiPrefix;
 }
 
-export const App = () => {
-  const webWalletUrl = getWebWalletUrl();
-  return (
-    <MuiThemeProvider theme={theme}>
-      <ThemeProvider theme={theme}>
-        <SessionProvider serviceHost={apiPrefix} webWalletUrl={webWalletUrl}>
-          {({ session }) => {
-            if (session.loading) {
-              return (
-                <Center>
-                  <CircularProgress />
-                </Center>
-              );
-            }
+export const App = () => (
+  <MuiThemeProvider theme={theme}>
+    <ThemeProvider theme={theme}>
+      <SessionProvider serviceHost={apiPrefix}>
+        {({ session }) => {
+          if (session.loading) {
+            return (
+              <Center>
+                <CircularProgress />
+              </Center>
+            );
+          }
 
-            if (session.user) {
-              return (
-                <React.Fragment>
-                  <CssBaseline />
-                  <GlobalStyle />
-                  <div className="wrapper">
-                    <Switch>
-                      <Route exact path="/" component={HomePage} />
-                      <Redirect to="/" />
-                    </Switch>
-                  </div>
-                </React.Fragment>
-              );
-            }
+          if (session.user) {
+            return (
+              <React.Fragment>
+                <CssBaseline />
+                <GlobalStyle />
+                <div className="wrapper">
+                  <Switch>
+                    <Route exact path="/" component={HomePage} />
+                    <Redirect to="/" />
+                  </Switch>
+                </div>
+              </React.Fragment>
+            );
+          }
 
-            return null;
-          }}
-        </SessionProvider>
-      </ThemeProvider>
-    </MuiThemeProvider>
-  );
-};
+          return null;
+        }}
+      </SessionProvider>
+    </ThemeProvider>
+  </MuiThemeProvider>
+);
 
 const WrappedApp = withRouter(App);
 

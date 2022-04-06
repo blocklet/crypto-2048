@@ -4,14 +4,13 @@ import styled from 'styled-components';
 
 import Avatar from '@material-ui/core/Avatar';
 import CircularProgress from '@material-ui/core/CircularProgress';
-import DidAuth from '@arcblock/did-react/lib/Auth';
+import DidConnect from '@arcblock/did-connect/lib/Connect';
 import Button from '@arcblock/ux/lib/Button';
 import Center from '@arcblock/ux/lib/Center';
 
 import Layout from '../components/layout';
 import Game from '../components/game';
 import { SessionContext } from '../libs/session';
-import { getWebWalletUrl } from '../libs/util';
 
 export default function IndexPage() {
   const { session, api } = useContext(SessionContext);
@@ -89,7 +88,6 @@ export default function IndexPage() {
     }
   };
 
-  const webWalletUrl = getWebWalletUrl();
 
   useEffect(() => {
     refresh(true);
@@ -158,14 +156,13 @@ export default function IndexPage() {
         </div>
       </Main>
       {authOpen && (
-        <DidAuth
+        <DidConnect
           responsive
           action="authorize"
           checkFn={api.get}
           onClose={onAuthClose}
           onSuccess={onAuthSuccess}
           checkTimeout={5 * 60 * 1000}
-          webWalletUrl={webWalletUrl}
           extraParams={{}}
           messages={{
             title: 'Signature Required',
@@ -176,14 +173,13 @@ export default function IndexPage() {
         />
       )}
       {trophyOpen && (
-        <DidAuth
+        <DidConnect
           responsive
           action="trophy"
           checkFn={api.get}
           onClose={onTrophyClose}
           onSuccess={onTrophySuccess}
           checkTimeout={5 * 60 * 1000}
-          webWalletUrl={webWalletUrl}
           extraParams={{}}
           messages={{
             title: 'Claim Trophy',
@@ -194,14 +190,13 @@ export default function IndexPage() {
         />
       )}
       {!!swapOpen && (
-        <DidAuth
+        <DidConnect
           responsive
           action="swap"
           checkFn={api.get}
           onClose={onSwapClose}
           onSuccess={onSwapSuccess}
           checkTimeout={5 * 60 * 1000}
-          webWalletUrl={webWalletUrl}
           extraParams={{ tid: swapOpen }}
           messages={{
             title: 'Buy Game Coins',
