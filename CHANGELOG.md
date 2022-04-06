@@ -1,3 +1,7 @@
+## 0.9.2 (四月 06, 2022)
+  - chore: remove @arcblock/did-react
+  - chore: remove getWebWalletUrl
+
 ## 0.9.1 (一月 30, 2022)
 
 - feat: use blocklet workflow
