@@ -3,7 +3,7 @@ description: >-
   A simple blockchain game that demos capabilities of ArcBlock technologies such
   as blockchain, did, abtnode
 title: Crypto 2048
-version: 0.9.1
+version: 0.9.2
 keywords:
   - blockchain
   - forge
@@ -34,25 +34,29 @@ environments:
     required: false
     default: playground
     secure: false
+    shared: true
   - name: LOCAL_CHAIN_HOST
     description: Host of the chain game coin lives
     required: false
     default: 'https://playground.network.arcblockio.cn/api'
     secure: false
+    shared: true
   - name: FOREIGN_CHAIN_ID
     description: ID of the chain native token lives
     required: false
     default: zinc-2019-05-17
     secure: false
+    shared: true
   - name: FOREIGN_CHAIN_HOST
     description: Host of the chain native token lives
     required: false
     default: 'https://zinc.abtnetwork.io/api'
     secure: false
+    shared: true
 scripts:
   preStart: node api/hooks/pre-start.js
   dev: npm run start
-specVersion: 1.2.1
+specVersion: 1.2.4
 did: z8iZqHcgrbAntF8SZMWmNMYLvJB5VjFAMndzo
 interfaces:
   - type: web
@@ -76,4 +80,6 @@ children: []
 payment:
   price: []
   share: []
-capabilities: {}
+capabilities:
+  clusterMode: false
+  component: true
